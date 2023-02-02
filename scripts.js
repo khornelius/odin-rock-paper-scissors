@@ -35,7 +35,11 @@ function game() {
   let winner;
 
   for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Rock, Paper or Scissors?");
+    let playerSelection;
+    do {
+      playerSelection = prompt("Rock, Paper or Scissors?");
+    }
+    while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'));
     let computerSelection = getComputerChoice();
     console.log(`${playerSelection} vs. ${computerSelection}`)
     let result = (playRound(playerSelection, computerSelection));
@@ -44,7 +48,7 @@ function game() {
       wins++;
     } else if (result === 'loss') {
       losses++;
-    } else {
+    } else if (result === 'tie') {
       ties++;
     }
   }
@@ -56,7 +60,7 @@ function game() {
   } else {
     winner = 'none';
   }
-  
+
   console.log((winner === 'player') ? "You win!" : (winner === 'none') ? "It's a tie!" : "You lose!");
   console.log(`The score was ${wins}-${losses}-${ties}.`);
 }
