@@ -12,8 +12,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-
   switch (playerSelection) {
     case computerSelection:
       return "tie";
@@ -24,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
     case 'scissors':
       return (computerSelection === 'rock') ? "loss" : "win";
     default:
-      return "Invalid choice, please enter either Rock, Paper or Scissors."
+      return;
   }
 }
 
@@ -38,8 +36,8 @@ function game() {
     let playerSelection;
     do {
       playerSelection = prompt("Rock, Paper or Scissors?");
-    }
-    while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'));
+      playerSelection = playerSelection.toLowerCase();
+    } while (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'));
     let computerSelection = getComputerChoice();
     console.log(`${playerSelection} vs. ${computerSelection}`)
     let result = (playRound(playerSelection, computerSelection));
