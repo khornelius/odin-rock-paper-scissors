@@ -20,6 +20,11 @@ body {
   text-align: center;
 }
 
+.choices {
+  height: 450px;
+  display: flex;
+}
+
 button {
   background-color: black;
   border-radius: 8px;
@@ -28,4 +33,13 @@ button {
   margin: 32px;
   padding: 6px 32px;
   font-size: 18px;
+}
+
+button:hover {
+  background-color: rgb(75, 75, 75);
+}
+
+img:hover {
+  border: 1px solid white;
+  border-radius: 16px;
 }
