@@ -10,34 +10,37 @@ function playRound(playerSelection, computerSelection) {
   switch (true) {
     case (playerSelection === computerSelection):
       ties++;
-      div.textContent = `You both picked ${playerSelection}, it's a tie! The score so far is ${playerWins}-${computerWins}-${ties}`;
+      resultsDiv.textContent = `You both picked ${playerSelection}, it's a tie!`;
       break;
     case (playerSelection === 'rock' && computerSelection === 'scissors'):
     case (playerSelection === 'paper' && computerSelection === 'rock'):
     case (playerSelection === 'scissors' && computerSelection === 'paper'):
       playerWins++;
-      div.textContent = `${playerSelection} beats ${computerSelection}, you win! The score so far is ${playerWins}-${computerWins}-${ties}`;
+      playerScoreDisplay.textContent = `Player score: ${playerWins}`;
+      resultsDiv.textContent = `${playerSelection} beats ${computerSelection}, you win this round!`;
       break;
     default:
       computerWins++;
-      div.textContent = `${computerSelection} beats ${playerSelection}, you lose! The score so far is ${playerWins}-${computerWins}-${ties}`;
+      computerScoreDisplay.textContent = `Computer score: ${computerWins}`;
+      resultsDiv.textContent = `${computerSelection} beats ${playerSelection}, you lose this round!`;
   }
 }
 
 function checkScores() {
   if (playerWins === 5 || computerWins === 5) {
     winner = (playerWins > computerWins) ? 'player' : 'computer';
-    div.textContent = `The ${winner} has won the game! The score was ${playerWins}-${computerWins}-${ties}`;
-    buttons.forEach((button) => {
-      button.removeEventListener('click', game);
+    resultsDiv.textContent = `The ${winner} has won the game! The score was ${playerWins}-${computerWins}-${ties}`;
+    choices.forEach((img) => {
+      img.removeEventListener('click', game);
     });
 
     const resetBtn = document.createElement('button');
     resetBtn.textContent = 'Play Again'
+
     resetBtn.addEventListener('click', () => {
       location.reload();
     });
-    document.body.appendChild(resetBtn);
+    containerDiv.appendChild(resetBtn);
   }
 }
 
@@ -52,10 +55,12 @@ let ties = 0;
 let result;
 let winner;
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-  button.addEventListener('click', game);
+const choices = document.querySelectorAll('img');
+choices.forEach((img) => {
+  img.addEventListener('click', game);
 });
 
-const div = document.createElement('div');
-document.body.appendChild(div);
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
+const containerDiv = document.querySelector('.container');
+const resultsDiv = document.querySelector('.results');
