@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+}
+
 .container {
+  background-color: black;
+  color:white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -6,6 +17,15 @@
 }
 
 .scores {
-  font-size: 48px;
   text-align: center;
+}
+
+button {
+  background-color: black;
+  border-radius: 8px;
+  border: 2px solid white;
+  color: white;
+  margin: 32px;
+  padding: 6px 32px;
+  font-size: 18px;
 }
