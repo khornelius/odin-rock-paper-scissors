@@ -1,28 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 32px;
-}
-
-.container {
   background-color: black;
   color:white;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
   min-height: 100vh;
-  align-items: center;
-}
-
-.scores {
+  padding: 0;
+  margin: 0;
   text-align: center;
 }
 
 .choices {
   height: 450px;
   display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 0 0 32px 0;
+}
+
+.scores {
+  display: flex;
+  gap: 128px;
+  justify-content: center;
+  margin: 32px 0;
 }
 
 button {
@@ -41,5 +42,5 @@ button:hover {
 
 img:hover {
   border: 1px solid white;
-  border-radius: 16px;
+  border-radius: 8px;
 }
