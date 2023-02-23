@@ -10,6 +10,7 @@ function playRound(playerSelection, computerSelection) {
   switch (true) {
     case (playerSelection === computerSelection):
       ties++;
+      tiesDisplay.textContent = `Ties: ${ties}`;
       resultsDiv.textContent = `You both picked ${playerSelection}, it's a tie!`;
       break;
     case (playerSelection === 'rock' && computerSelection === 'scissors'):
@@ -62,5 +63,6 @@ choices.forEach((img) => {
 
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
+const tiesDisplay = document.querySelector('#ties');
 const containerDiv = document.querySelector('.container');
 const resultsDiv = document.querySelector('.results');
